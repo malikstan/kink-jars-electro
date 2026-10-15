@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>ميولك — النسخة الكهربائية</title>
+<title>وش ميولك؟ — النسخة العربية</title>
 
-<meta name="description" content="عبّ برطماناتك، اختر لونك، واحفظ النتيجة بصورة.">
+<meta name="description" content="قيّم ميولك، اختر لونك، واحفظ النتيجة بصورة.">
 <meta property="og:title" content="برطماناتك">
-<meta property="og:description" content="عبّ برطماناتك، اختر لونك، واحفظ النتيجة بصورة.">
+<meta property="og:description" content="قيّم ميولك، اختر لونك، واحفظ النتيجة بصورة.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,7 +98,7 @@
 <div class="wrap">
   <header>
     <h1>وش <span>ميولك؟</span></h1>
-    <p>نسخة الميول الكهربائية من لعبة BDSM. عبّ كل برطمان على قد اهتمامك بالخيار: ١ اهتمام بسيط، و٥ اهتمام كبير. اللي ما يعجبك خلّه فاضي، وبالأخير احفظ صورتك.</p>
+    <p>وش يعجبك؟ هذي ٢٦ خيار عن ميولك الجنسية. عبّ كل برطمان على قد رغبتك: ١ يعجبني شوي، و٥ يعجبني مرّة. اللي ما يعجبك خلّه فاضي، وبالأخير احفظ صورتك.</p>
     <p class="source">مبني على <a href="https://github.com/LockedTony/kink-jars" dir="ltr">Kink Jars</a> · نسخة عربية عامية</p>
   </header>
 
@@ -137,7 +137,7 @@
         <div class="step">الخطوة ٣</div>
         <h2>عبّ برطماناتك</h2>
         <p class="hint">كل برطمان يمثّل ميل مختلف. اختر قد إيش يعجبك من ١ إلى ٥. اضغط الرقم مرة ثانية عشان تلغيه.</p>
-        <p class="hint">العصا الكهربائية هي Violet Wand، وجهاز النبضات هو TENS. التقييم هنا لاهتمامك بالخيار، مو لقوة الكهرباء.</p>
+        <p class="hint">التقييم يعبّر عن رغبتك، مو شرط إنك جرّبت الخيار. كل الخيارات هنا تخص بالغين وبرضا الطرفين. BDSM يشمل الربط والسيطرة والخضوع والسادية والمازوخية.</p>
         <div id="questions"></div>
       </section>
     </main>
@@ -157,7 +157,7 @@
   </div>
 </div>
 
-<div class="bar"><div class="bar-in"><span id="progress">عبّيت ٠ من ١٠</span><button class="big" id="saveBar" type="button">احفظ صورتي</button></div></div>
+<div class="bar"><div class="bar-in"><span id="progress">عبّيت ٠ من ٢٦</span><button class="big" id="saveBar" type="button">احفظ صورتي</button></div></div>
 
 <div id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mt">
   <div class="sheet">
@@ -173,19 +173,40 @@
 /* ===== Edit the jars here. Each array is the label, one entry per line. ===== */
 // Translated labels preserve the original categories without adding instructions.
 const JARS = [
-  ["ألعاب العصا", "الكهربائية"], ["العصا الكهربائية", "على الجسم"],
-  ["الوسم (الكيّ)", "بالعصا الكهربائية"], ["نبضات كهربائية", "للمتعة"],
-  ["نبضات كهربائية", "للألم"], ["نبضات كهربائية", "لتحريك العضلات"],
-  ["نبضات كهربائية", "بالريموت"], ["جهاز صعق", "بمقبض تدوير"],
-  ["أدوات الصعق", "الكهربائي"], ["أطواق الصعق", "الكهربائي"]
+  ["أكون الطرف", "المسيطر"],
+  ["أكون الطرف", "الخاضع"],
+  ["أبدّل بين", "السيطرة والخضوع"],
+  ["أخنق", "الطرف الثاني"],
+  ["الطرف الثاني", "يخنقني"],
+  ["أضرب الطرف الثاني", "على المؤخرة"],
+  ["أنضرب", "على المؤخرة"],
+  ["ممارسات جنسية", "بمكان عام"],
+  ["اللعب بالشمع", "على الجسم"],
+  ["اللعب بالبول"],
+  ["تمثيل أدوار", "جنسية"],
+  ["تمثيل الإكراه", "باتفاق مسبق"],
+  ["أحد يتحكّم", "بوصولي للنشوة"],
+  ["أتحكّم بوصول", "الطرف الثاني للنشوة"],
+  ["تكميم الفم"],
+  ["الانجذاب الجنسي", "للأقدام"],
+  ["الجنس الشرجي"],
+  ["الطرف الثاني", "يربطني"],
+  ["أربط", "الطرف الثاني"],
+  ["أهين الطرف الثاني", "أو أذلّه"],
+  ["الطرف الثاني", "يهينني أو يذلّني"],
+  ["ممارسات", "BDSM"],
+  ["علاقة جنسية", "بين ثلاثة"],
+  ["السادية", "أستمتع بإيلام غيري"],
+  ["المازوخية", "أستمتع بالألم"],
+  ["البصق"]
 ];
 const arNumber = value => new Intl.NumberFormat("ar-SA", { useGrouping: false }).format(value);
 const PRESETS = ["#e63946","#ff5d8f","#ff8c42","#ffd23f","#7bd389","#2ec4b6","#3a86ff","#5b2a86","#c77dff","#8d1d3a","#8d5524","#2b2d42"];
-const COLS = 5, INK = "#151311", PW = 1200;
+const COLS = 7, INK = "#151311", PW = 1200;
 const ROWS = Math.ceil(JARS.length / COLS);
 const PH = 260 + (ROWS - 1) * 345 + 360;
 
-const STORE = "kinkjars-sharps-and-blood-v1";
+const STORE = "kinkjars-ar-adults-v2";
 
 /* ===== state ===== */
 let state = { name: "", color: "#e63946", answers: JARS.map(() => 0) };
@@ -386,7 +407,7 @@ function drawPoster(canvas, scale) {
     c.textAlign = "center"; c.fillText(name, x0 + lineW / 2, base - 18);
   }
   c.textAlign = "center"; c.font = "500 30px Tajawal, sans-serif"; c.fillStyle = "#555";
-  c.fillText("١ اهتمام بسيط · ٥ اهتمام كبير · الفاضي ما يعجبني", PW / 2, 200);
+  c.fillText("١ يعجبني شوي · ٥ يعجبني مرّة · الفاضي ما يعجبني", PW / 2, 200);
 
   JARS.forEach((label, i) => {
     const col = COLS - 1 - (i % COLS), row = Math.floor(i / COLS);
