@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>برطماناتك — النسخة الكهربائية</title>
+<title>ميولك — النسخة الكهربائية</title>
 
 <meta name="description" content="عبّ برطماناتك، اختر لونك، واحفظ النتيجة بصورة.">
 <meta property="og:title" content="برطماناتك">
@@ -97,8 +97,8 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>عبّ <span>برطماناتك</span></h1>
-    <p>اختر لونك، وقيّم كل خيار من ١ (شوي) إلى ٥ (على الآخر)، وبعدها احفظ النتيجة بصورة. ما يناسبك الخيار؟ خلّه فاضي.</p>
+    <h1>وش <span>ميولك؟</span></h1>
+    <p>نسخة الميول الكهربائية من لعبة BDSM. عبّ كل برطمان على قد اهتمامك بالخيار: ١ اهتمام بسيط، و٥ اهتمام كبير. اللي ما يعجبك خلّه فاضي، وبالأخير احفظ صورتك.</p>
     <p class="source">مبني على <a href="https://github.com/LockedTony/kink-jars" dir="ltr">Kink Jars</a> · نسخة عربية عامية</p>
   </header>
 
@@ -136,7 +136,8 @@
       <section class="panel">
         <div class="step">الخطوة ٣</div>
         <h2>عبّ برطماناتك</h2>
-        <p class="hint">اضغط الرقم اللي يناسبك. ولو ضغطته مرة ثانية، يرجع البرطمان فاضي.</p>
+        <p class="hint">كل برطمان يمثّل ميل مختلف. اختر قد إيش يعجبك من ١ إلى ٥. اضغط الرقم مرة ثانية عشان تلغيه.</p>
+        <p class="hint">العصا الكهربائية هي Violet Wand، وجهاز النبضات هو TENS. التقييم هنا لاهتمامك بالخيار، مو لقوة الكهرباء.</p>
         <div id="questions"></div>
       </section>
     </main>
@@ -144,7 +145,7 @@
     <aside class="side">
       <section class="panel" id="done">
         <div class="step">الخطوة ٤</div>
-        <h2>برطماناتك</h2>
+        <h2>هذي ميولك</h2>
         <canvas class="poster" id="poster" aria-label="معاينة برطماناتك"></canvas>
         <button class="big" id="save" type="button">احفظ صورتي</button>
         <div class="small-links">
@@ -160,7 +161,7 @@
 
 <div id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mt">
   <div class="sheet">
-    <h3 id="mt">هذي برطماناتك!</h3>
+    <h3 id="mt">هذي نتيجتك!</h3>
     <p>ما تحمّلت الصورة؟ اضغط عليها مطوّلًا، أو بزر الفأرة اليمين، واختر «حفظ الصورة».</p>
     <img id="modalImg" alt="صورة برطماناتك">
     <button class="big" id="closeModal" type="button">تم</button>
@@ -172,11 +173,11 @@
 /* ===== Edit the jars here. Each array is the label, one entry per line. ===== */
 // Translated labels preserve the original categories without adding instructions.
 const JARS = [
-  ["العصا البنفسجية", "مع الأدوات"], ["العصا البنفسجية", "ملامسة الجسم"],
-  ["العصا البنفسجية", "الوسم"], ["جهاز تنس", "للإحساس الممتع"],
-  ["جهاز تنس", "للألم"], ["جهاز تنس", "لتحريك العضلات"],
-  ["جهاز تنس", "بالتحكم عن بُعد"], ["مولّد بكرنك", "يدوي"],
-  ["أجهزة الصعق"], ["أطواق الصعق"]
+  ["ألعاب العصا", "الكهربائية"], ["العصا الكهربائية", "على الجسم"],
+  ["الوسم (الكيّ)", "بالعصا الكهربائية"], ["نبضات كهربائية", "للمتعة"],
+  ["نبضات كهربائية", "للألم"], ["نبضات كهربائية", "لتحريك العضلات"],
+  ["نبضات كهربائية", "بالريموت"], ["جهاز صعق", "بمقبض تدوير"],
+  ["أدوات الصعق", "الكهربائي"], ["أطواق الصعق", "الكهربائي"]
 ];
 const arNumber = value => new Intl.NumberFormat("ar-SA", { useGrouping: false }).format(value);
 const PRESETS = ["#e63946","#ff5d8f","#ff8c42","#ffd23f","#7bd389","#2ec4b6","#3a86ff","#5b2a86","#c77dff","#8d1d3a","#8d5524","#2b2d42"];
@@ -375,9 +376,9 @@ function drawPoster(canvas, scale) {
 
   c.fillStyle = INK; c.textBaseline = "alphabetic"; c.textAlign = "left"; c.direction = "rtl";
   c.font = "800 88px Tajawal, sans-serif";
-  const tw = c.measureText("برطماناتك").width, lineW = 360, gap = 26, x0 = (PW - lineW - gap - tw) / 2, base = 140;
+  const tw = c.measureText("ميولك").width, lineW = 360, gap = 26, x0 = (PW - lineW - gap - tw) / 2, base = 140;
   c.fillRect(x0, base - 5, lineW, 7);
-  c.fillText("برطماناتك", x0 + lineW + gap, base);
+  c.fillText("ميولك", x0 + lineW + gap, base);
   const name = state.name.trim();
   if (name) {
     let size = 66; c.font = `700 ${size}px Tajawal, sans-serif`;
@@ -385,7 +386,7 @@ function drawPoster(canvas, scale) {
     c.textAlign = "center"; c.fillText(name, x0 + lineW / 2, base - 18);
   }
   c.textAlign = "center"; c.font = "500 30px Tajawal, sans-serif"; c.fillStyle = "#555";
-  c.fillText("١ يعني شوي · ٥ يعني على الآخر · الفاضي ما يناسبني", PW / 2, 200);
+  c.fillText("١ اهتمام بسيط · ٥ اهتمام كبير · الفاضي ما يعجبني", PW / 2, 200);
 
   JARS.forEach((label, i) => {
     const col = COLS - 1 - (i % COLS), row = Math.floor(i / COLS);
@@ -411,7 +412,7 @@ const qWrap = $("questions"), minis = [];
 JARS.forEach((label, i) => {
   const text = label.join(" ");
   const q = document.createElement("div"); q.className = "q";
-  q.innerHTML = `<canvas aria-hidden="true"></canvas><div><div class="qnum">${arNumber(i + 1)} من ${arNumber(JARS.length)}</div><div class="qlabel"></div><div class="scale" role="group"></div><div class="ends"><span>شوي</span><span>على الآخر</span></div></div>`;
+  q.innerHTML = `<canvas aria-hidden="true"></canvas><div><div class="qnum">${arNumber(i + 1)} من ${arNumber(JARS.length)}</div><div class="qlabel"></div><div class="scale" role="group"></div><div class="ends"><span>يعجبني شوي</span><span>يعجبني مرّة</span></div></div>`;
   q.querySelector(".qlabel").textContent = text;
   const sc = q.querySelector(".scale"); sc.setAttribute("aria-label", text);
   for (let v = 1; v <= 5; v++) {
