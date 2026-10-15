@@ -1,40 +1,46 @@
 <!doctype html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- UPDATE HERE -->
-<title>Kink Jars - Sharps and Blood Edition</title>
-This is based on <a href="https://github.com/LockedTony/kink-jars">github.com/LockedTony/kink-jars</a><br>
-<meta name="description" content="Fill your jars, pick your color, save your picture.">
-<meta property="og:title" content="Kink Jars">
-<meta property="og:description" content="Fill your jars, pick your color, save your picture.">
+
+<title>برطماناتك — النسخة الكهربائية</title>
+
+<meta name="description" content="عبّ برطماناتك، اختر لونك، واحفظ النتيجة بصورة.">
+<meta property="og:title" content="برطماناتك">
+<meta property="og:description" content="عبّ برطماناتك، اختر لونك، واحفظ النتيجة بصورة.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Permanent+Marker&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{--c:#e63946;--on-c:#fff;--ink:#1d1a17;--bg:#fbf6ef;--card:#fff;--muted:#6b625a;--line:#e9e0d5}
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,sans-serif;font-size:18px;line-height:1.45;padding-bottom:110px}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Tajawal,system-ui,sans-serif;font-size:18px;line-height:1.45;padding-bottom:110px}
   @media(min-width:960px){body{padding-bottom:40px}}
   .wrap{max-width:1180px;margin:0 auto;padding:28px 16px}
   header{margin-bottom:22px}
-  header h1{font-family:Oswald,sans-serif;font-weight:700;font-size:clamp(44px,9vw,68px);margin:0;line-height:1}
+  header h1{font-family:Tajawal,sans-serif;font-weight:700;font-size:clamp(44px,9vw,68px);margin:0;line-height:1.4}
   header h1 span{color:var(--c);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill}
   header p{margin:10px 0 0;color:var(--muted);max-width:640px}
   .layout{display:grid;gap:24px}
   @media(min-width:960px){.layout{grid-template-columns:minmax(0,1fr) 430px}.side{position:sticky;top:20px;align-self:start}}
   .panel{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:20px;margin-bottom:20px}
-  .step{font-family:Oswald,sans-serif;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-  h2{font-family:Oswald,sans-serif;font-weight:600;font-size:27px;margin:2px 0 12px;line-height:1.15}
+  .step{font-family:Tajawal,sans-serif;font-weight:600;font-size:14px;letter-spacing:0;text-transform:uppercase;color:var(--muted)}
+  h2{font-family:Tajawal,sans-serif;font-weight:600;font-size:27px;margin:2px 0 12px;line-height:1.5}
   .hint{color:var(--muted);font-size:16px;margin:-4px 0 14px}
   input[type=text]{font:inherit;font-size:20px;width:100%;padding:14px 16px;border:2px solid var(--line);border-radius:14px;background:#fff;color:var(--ink)}
   input[type=text]:focus{border-color:var(--ink);outline:none}
   button{font:inherit;cursor:pointer;color:var(--ink)}
   button:focus-visible,input:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 
+  input[type=range], #hex{direction:ltr}
+  .sl output{text-align:end}
+  .q > div{min-width:0}
+  .source{font-size:13px;color:var(--muted);margin-top:14px}
+  .source a{color:inherit}
+  @media(max-width:380px){.q{grid-template-columns:56px minmax(0,1fr);gap:10px}.q canvas{width:56px;height:auto}.scale{gap:4px}.qlabel{font-size:21px}.bar .big{font-size:18px;padding:12px 16px}}
   /* color picker */
   .picker{display:grid;gap:18px}
   @media(min-width:620px){.picker{grid-template-columns:1fr 170px;align-items:center}}
@@ -42,7 +48,7 @@ This is based on <a href="https://github.com/LockedTony/kink-jars">github.com/Lo
   .sw{aspect-ratio:1;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--line);padding:0;min-width:40px}
   .sw[aria-pressed=true]{box-shadow:0 0 0 3px var(--ink)}
   .sliders{display:grid;gap:12px;margin-top:16px;max-width:420px}
-  .sl{display:grid;grid-template-columns:52px 1fr 44px;align-items:center;gap:10px;font-weight:700;font-size:16px}
+  .sl{display:grid;grid-template-columns:54px minmax(0,1fr) 34px;align-items:center;gap:10px;font-weight:700;font-size:16px}
   .sl output{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
   input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:26px;border-radius:13px;border:2px solid var(--ink);margin:0;background:#ccc}
   input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:#fff;border:3px solid var(--ink);box-shadow:0 2px 4px rgba(0,0,0,.25)}
@@ -59,16 +65,16 @@ This is based on <a href="https://github.com/LockedTony/kink-jars">github.com/Lo
   .q:first-of-type{border-top:0}
   .q canvas{width:76px;height:124px}
   .qnum{font-size:14px;color:var(--muted);font-weight:700}
-  .qlabel{font-family:Oswald,sans-serif;font-weight:600;font-size:25px;line-height:1.1;margin:2px 0 10px}
+  .qlabel{font-family:Tajawal,sans-serif;font-weight:600;font-size:25px;line-height:1.6;margin:2px 0 10px}
   .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;max-width:380px}
-  .scale button{height:52px;border-radius:14px;border:2px solid var(--ink);background:#fff;font-family:Oswald,sans-serif;font-weight:600;font-size:22px;transition:transform .08s}
+  .scale button{height:52px;border-radius:14px;border:2px solid var(--ink);background:#fff;font-family:Tajawal,sans-serif;font-weight:600;font-size:22px;transition:transform .08s}
   .scale button:active{transform:scale(.94)}
   .scale button[aria-pressed=true]{background:var(--c);color:var(--on-c);box-shadow:0 3px 0 var(--ink)}
   .ends{display:flex;justify-content:space-between;max-width:380px;font-size:13px;color:var(--muted);font-weight:700;margin-top:5px}
 
   /* poster + save */
   .poster{width:100%;height:auto;display:block;border-radius:12px;border:2px solid var(--line);background:#fff}
-  .big{display:block;width:100%;margin-top:16px;padding:18px 20px;border-radius:18px;border:3px solid var(--ink);background:var(--c);color:var(--on-c);font-family:Oswald,sans-serif;font-weight:700;font-size:26px;letter-spacing:.02em;box-shadow:0 5px 0 var(--ink)}
+  .big{display:block;width:100%;margin-top:16px;padding:18px 20px;border-radius:18px;border:3px solid var(--ink);background:var(--c);color:var(--on-c);font-family:Tajawal,sans-serif;font-weight:700;font-size:26px;letter-spacing:0;box-shadow:0 5px 0 var(--ink)}
   .big:active{transform:translateY(3px);box-shadow:0 2px 0 var(--ink)}
   .small-links{display:flex;justify-content:space-between;gap:10px;margin-top:14px;font-size:15px;color:var(--muted)}
   .linkbtn{background:none;border:0;padding:4px 0;text-decoration:underline;color:var(--muted);font-size:15px}
@@ -82,7 +88,7 @@ This is based on <a href="https://github.com/LockedTony/kink-jars">github.com/Lo
   #modal{position:fixed;inset:0;background:rgba(20,16,12,.6);display:flex;align-items:center;justify-content:center;padding:16px;z-index:10}
   #modal[hidden]{display:none}
   .sheet{background:#fff;border-radius:22px;padding:20px;max-width:440px;width:100%;max-height:92vh;overflow:auto;text-align:center}
-  .sheet h3{font-family:Oswald,sans-serif;font-size:28px;margin:0 0 6px}
+  .sheet h3{font-family:Tajawal,sans-serif;font-size:28px;margin:0 0 6px}
   .sheet p{margin:0 0 12px;color:var(--muted);font-size:16px}
   .sheet img{width:100%;border-radius:10px;border:2px solid var(--line)}
   .privacy{font-size:14px;color:var(--muted);text-align:center;margin-top:8px}
@@ -91,33 +97,34 @@ This is based on <a href="https://github.com/LockedTony/kink-jars">github.com/Lo
 <body>
 <div class="wrap">
   <header>
-    <h1>Fill your <span>electro jars</span></h1>
-    <p>Pick a color, rate each one from 1 (a little) to 5 (overflowing), then save your picture. Not your thing? Skip it and the jar stays empty.</p>
+    <h1>عبّ <span>برطماناتك</span></h1>
+    <p>اختر لونك، وقيّم كل خيار من ١ (شوي) إلى ٥ (على الآخر)، وبعدها احفظ النتيجة بصورة. ما يناسبك الخيار؟ خلّه فاضي.</p>
+    <p class="source">مبني على <a href="https://github.com/LockedTony/kink-jars" dir="ltr">Kink Jars</a> · نسخة عربية عامية</p>
   </header>
 
   <div class="layout">
     <main>
       <section class="panel">
-        <div class="step">Step 1</div>
-        <h2>What's your name?</h2>
-        <p class="hint">It goes on the blank line at the top. Nickname is fine, or leave it blank.</p>
-        <input type="text" id="name" maxlength="24" autocomplete="off" placeholder="Your name">
+        <div class="step">الخطوة ١</div>
+        <h2>وش اسمك؟</h2>
+        <p class="hint">اسمك بيطلع فوق بالصورة. تقدر تكتب لقبك، أو تتركه فاضي.</p>
+        <input type="text" id="name" maxlength="24" autocomplete="off" placeholder="اسمك أو لقبك" aria-label="اسمك أو لقبك">
       </section>
 
       <section class="panel">
-        <div class="step">Step 2</div>
-        <h2>Pick your color</h2>
+        <div class="step">الخطوة ٢</div>
+        <h2>اختر لونك</h2>
         <div class="picker">
           <div>
-            <div class="swatches" id="swatches" aria-label="Color choices"></div>
+            <div class="swatches" id="swatches" aria-label="الألوان المتاحة"></div>
             <div class="sliders">
-              <label class="sl">Red<input type="range" id="r" min="0" max="255"><output id="rv"></output></label>
-              <label class="sl">Green<input type="range" id="g" min="0" max="255"><output id="gv"></output></label>
-              <label class="sl">Blue<input type="range" id="b" min="0" max="255"><output id="bv"></output></label>
+              <label class="sl">أحمر<input type="range" id="r" min="0" max="255"><output id="rv"></output></label>
+              <label class="sl">أخضر<input type="range" id="g" min="0" max="255"><output id="gv"></output></label>
+              <label class="sl">أزرق<input type="range" id="b" min="0" max="255"><output id="bv"></output></label>
             </div>
             <div class="hexrow">
-              <input type="text" id="hex" maxlength="7" spellcheck="false" aria-label="Color code">
-              <button class="ghost" id="surprise" type="button">Surprise me</button>
+              <input type="text" id="hex" maxlength="7" spellcheck="false" aria-label="كود اللون">
+              <button class="ghost" id="surprise" type="button">اختر لي لون</button>
             </div>
           </div>
           <div class="preview-jars" aria-hidden="true">
@@ -127,50 +134,56 @@ This is based on <a href="https://github.com/LockedTony/kink-jars">github.com/Lo
       </section>
 
       <section class="panel">
-        <div class="step">Step 3</div>
-        <h2>Fill your jars</h2>
-        <p class="hint">Tap a number. Tap it again to empty the jar.</p>
+        <div class="step">الخطوة ٣</div>
+        <h2>عبّ برطماناتك</h2>
+        <p class="hint">اضغط الرقم اللي يناسبك. ولو ضغطته مرة ثانية، يرجع البرطمان فاضي.</p>
         <div id="questions"></div>
       </section>
     </main>
 
     <aside class="side">
       <section class="panel" id="done">
-        <div class="step">Step 4</div>
-        <h2>Your jars</h2>
-        <canvas class="poster" id="poster" aria-label="Preview of your filled jars"></canvas>
-        <button class="big" id="save" type="button">Save my jars</button>
+        <div class="step">الخطوة ٤</div>
+        <h2>برطماناتك</h2>
+        <canvas class="poster" id="poster" aria-label="معاينة برطماناتك"></canvas>
+        <button class="big" id="save" type="button">احفظ صورتي</button>
         <div class="small-links">
-          <span>Nothing leaves your phone.</span>
-          <button class="linkbtn" id="reset" type="button">Start over</button>
+          <span>إجاباتك محفوظة في هالمتصفح بس.</span>
+          <button class="linkbtn" id="reset" type="button">ابدأ من جديد</button>
         </div>
       </section>
     </aside>
   </div>
 </div>
 
-<div class="bar"><div class="bar-in"><span id="progress">0 of 28 filled</span><button class="big" id="saveBar" type="button">Save my jars</button></div></div>
+<div class="bar"><div class="bar-in"><span id="progress">عبّيت ٠ من ١٠</span><button class="big" id="saveBar" type="button">احفظ صورتي</button></div></div>
 
 <div id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mt">
   <div class="sheet">
-    <h3 id="mt">Here are your jars!</h3>
-    <p>If it didn't download, press and hold the picture (or right-click it) and choose “Save image.”</p>
-    <img id="modalImg" alt="Your filled jars">
-    <button class="big" id="closeModal" type="button">Done</button>
+    <h3 id="mt">هذي برطماناتك!</h3>
+    <p>ما تحمّلت الصورة؟ اضغط عليها مطوّلًا، أو بزر الفأرة اليمين، واختر «حفظ الصورة».</p>
+    <img id="modalImg" alt="صورة برطماناتك">
+    <button class="big" id="closeModal" type="button">تم</button>
   </div>
 </div>
 
 <script>
-<!-- UPDATE HERE -->
+
 /* ===== Edit the jars here. Each array is the label, one entry per line. ===== */
+// Translated labels preserve the original categories without adding instructions.
 const JARS = [
-  ["violet wand","toys"], ["violet wand","body contact"], ["violet wand", "branding"], ["TENS", "pleasure"], ["TENS", "pain"], ["TENS", "movement"], ["TENS", "remote control"], ["crank boxes"], ["zappers"], ["shock", "collars"]
+  ["العصا البنفسجية", "مع الأدوات"], ["العصا البنفسجية", "ملامسة الجسم"],
+  ["العصا البنفسجية", "الوسم"], ["جهاز تنس", "للإحساس الممتع"],
+  ["جهاز تنس", "للألم"], ["جهاز تنس", "لتحريك العضلات"],
+  ["جهاز تنس", "بالتحكم عن بُعد"], ["مولّد بكرنك", "يدوي"],
+  ["أجهزة الصعق"], ["أطواق الصعق"]
 ];
+const arNumber = value => new Intl.NumberFormat("ar-SA", { useGrouping: false }).format(value);
 const PRESETS = ["#e63946","#ff5d8f","#ff8c42","#ffd23f","#7bd389","#2ec4b6","#3a86ff","#5b2a86","#c77dff","#8d1d3a","#8d5524","#2b2d42"];
 const COLS = 5, INK = "#151311", PW = 1200;
 const ROWS = Math.ceil(JARS.length / COLS);
 const PH = 260 + (ROWS - 1) * 345 + 360;
-<!-- UPDATE HERE -->
+
 const STORE = "kinkjars-sharps-and-blood-v1";
 
 /* ===== state ===== */
@@ -360,26 +373,26 @@ function drawPoster(canvas, scale) {
   c.setTransform(scale, 0, 0, scale, 0, 0);
   c.fillStyle = "#fff"; c.fillRect(0, 0, PW, PH);
 
-  c.fillStyle = INK; c.textBaseline = "alphabetic"; c.textAlign = "left";
-  c.font = "700 104px Oswald, Impact, 'Arial Narrow', sans-serif";
-  const tw = c.measureText("Kink Jars").width, lineW = 360, gap = 26, x0 = (PW - lineW - gap - tw) / 2, base = 140;
+  c.fillStyle = INK; c.textBaseline = "alphabetic"; c.textAlign = "left"; c.direction = "rtl";
+  c.font = "800 88px Tajawal, sans-serif";
+  const tw = c.measureText("برطماناتك").width, lineW = 360, gap = 26, x0 = (PW - lineW - gap - tw) / 2, base = 140;
   c.fillRect(x0, base - 5, lineW, 7);
-  c.fillText("Kink Jars", x0 + lineW + gap, base);
+  c.fillText("برطماناتك", x0 + lineW + gap, base);
   const name = state.name.trim();
   if (name) {
-    let size = 66; c.font = `${size}px "Permanent Marker", "Comic Sans MS", cursive`;
-    while (c.measureText(name).width > lineW - 12 && size > 20) { size -= 2; c.font = `${size}px "Permanent Marker", "Comic Sans MS", cursive`; }
+    let size = 66; c.font = `700 ${size}px Tajawal, sans-serif`;
+    while (c.measureText(name).width > lineW - 12 && size > 20) { size -= 2; c.font = `700 ${size}px Tajawal, sans-serif`; }
     c.textAlign = "center"; c.fillText(name, x0 + lineW / 2, base - 18);
   }
-  c.textAlign = "center"; c.font = "500 30px Oswald, 'Arial Narrow', sans-serif"; c.fillStyle = "#555";
-  c.fillText("(1 = a little  ·  5 = overflowing)", PW / 2, 200);
+  c.textAlign = "center"; c.font = "500 30px Tajawal, sans-serif"; c.fillStyle = "#555";
+  c.fillText("١ يعني شوي · ٥ يعني على الآخر · الفاضي ما يناسبني", PW / 2, 200);
 
   JARS.forEach((label, i) => {
-    const col = i % COLS, row = Math.floor(i / COLS);
+    const col = COLS - 1 - (i % COLS), row = Math.floor(i / COLS);
     const cx = PW / 2 + (col - (COLS - 1) / 2) * 150, top = 260 + row * 345;
     c.save(); c.translate(cx - 48, top); drawJar(c, i, state.answers[i], rgb); c.restore();
-    let size = 30; c.font = `600 ${size}px Oswald, 'Arial Narrow', sans-serif`;
-    while (label.some(l => c.measureText(l).width > 140) && size > 18) { size--; c.font = `600 ${size}px Oswald, 'Arial Narrow', sans-serif`; }
+    let size = 30; c.font = `600 ${size}px Tajawal, sans-serif`;
+    while (label.some(l => c.measureText(l).width > 140) && size > 18) { size--; c.font = `600 ${size}px Tajawal, sans-serif`; }
     c.fillStyle = INK; c.textAlign = "center";
     label.forEach((l, k) => c.fillText(l, cx, top + 170 + 44 + k * (size + 4)));
   });
@@ -398,12 +411,12 @@ const qWrap = $("questions"), minis = [];
 JARS.forEach((label, i) => {
   const text = label.join(" ");
   const q = document.createElement("div"); q.className = "q";
-  q.innerHTML = `<canvas aria-hidden="true"></canvas><div><div class="qnum">${i + 1} of ${JARS.length}</div><div class="qlabel"></div><div class="scale" role="group"></div><div class="ends"><span>a little</span><span>overflowing</span></div></div>`;
+  q.innerHTML = `<canvas aria-hidden="true"></canvas><div><div class="qnum">${arNumber(i + 1)} من ${arNumber(JARS.length)}</div><div class="qlabel"></div><div class="scale" role="group"></div><div class="ends"><span>شوي</span><span>على الآخر</span></div></div>`;
   q.querySelector(".qlabel").textContent = text;
   const sc = q.querySelector(".scale"); sc.setAttribute("aria-label", text);
   for (let v = 1; v <= 5; v++) {
-    const b = document.createElement("button"); b.type = "button"; b.textContent = v;
-    b.setAttribute("aria-label", `${text}: ${v} out of 5`);
+    const b = document.createElement("button"); b.type = "button"; b.textContent = arNumber(v);
+    b.setAttribute("aria-label", `${text}: ${arNumber(v)} من ٥`);
     b.onclick = () => { state.answers[i] = state.answers[i] === v ? 0 : v; persist(); update(); };
     sc.appendChild(b);
   }
@@ -414,7 +427,7 @@ JARS.forEach((label, i) => {
 const sw = $("swatches");
 PRESETS.forEach(hex => {
   const b = document.createElement("button"); b.type = "button"; b.className = "sw"; b.style.background = hex;
-  b.dataset.hex = hex; b.setAttribute("aria-label", "Color " + hex);
+  b.dataset.hex = hex; b.setAttribute("aria-label", "اللون " + hex);
   b.onclick = () => setColor(hex); sw.appendChild(b);
 });
 ["r", "g", "b"].forEach((k, n) => $(k).addEventListener("input", () => {
@@ -453,16 +466,17 @@ function render() {
     m.buttons.forEach((b, k) => b.setAttribute("aria-pressed", state.answers[i] === k + 1));
   });
   const n = state.answers.filter(Boolean).length;
-  $("progress").textContent = `${n} of ${JARS.length} filled`;
+  $("progress").textContent = `عبّيت ${arNumber(n)} من ${arNumber(JARS.length)}`;
   drawPoster($("poster"), 1);
 }
 
 async function save() {
+  await document.fonts.ready;
   const out = document.createElement("canvas");
   drawPoster(out, 2);
   const blob = await new Promise(res => out.toBlob(res, "image/png"));
-  const slug = state.name.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-  const fname = (slug ? slug + "-" : "") + "kink-jars.png";
+  const slug = state.name.trim().toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "");
+  const fname = (slug ? slug + "-" : "") + "bartamanati.png";
   const file = new File([blob], fname, { type: "image/png" });
   const touch = matchMedia("(pointer: coarse)").matches;
   if (touch && navigator.canShare && navigator.canShare({ files: [file] })) {
@@ -478,12 +492,12 @@ $("save").onclick = save; $("saveBar").onclick = save;
 $("closeModal").onclick = () => { $("modal").hidden = true; };
 $("modal").addEventListener("click", e => { if (e.target.id === "modal") $("modal").hidden = true; });
 $("reset").onclick = () => {
-  if (!confirm("Empty all the jars and start over?")) return;
+  if (!confirm("أكيد تبي تفضّي كل البرطمانات وتمسح الاسم وتبدأ من جديد؟")) return;
   state.answers = JARS.map(() => 0); state.name = ""; $("name").value = ""; persist(); update(); scrollTo({ top: 0, behavior: "smooth" });
 };
 
 render();
-Promise.all(["700 104px Oswald, Impact, 'Arial Narrow', sans-serif", "600 30px Oswald", "500 30px Oswald, 'Arial Narrow', sans-serif", '66px "Permanent Marker"'].map(f => document.fonts.load(f)))
+Promise.all(["800 88px Tajawal", "600 30px Tajawal", "500 30px Tajawal", "700 66px Tajawal"].map(f => document.fonts.load(f)))
   .catch(() => {}).then(() => document.fonts.ready).then(render);
 </script>
 </body>

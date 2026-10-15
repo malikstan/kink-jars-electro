@@ -1,18 +1,35 @@
-# Kink Jars
+# برطماناتك — النسخة العربية
 
-A single-page questionnaire: pick a color, rate each jar 1–5, save a PNG.
-Everything runs in the browser. Nothing is uploaded, and answers are only kept in that person's browser (localStorage) so a refresh doesn't wipe them.
+نسخة عربية عامية من [kink-jars-electro](https://github.com/addyx10/kink-jars-electro)، المبني على [Kink Jars](https://github.com/LockedTony/kink-jars).
 
-## Host it free on GitHub Pages
+اختر لونك، وقيّم الخيارات من ١ إلى ٥، واحفظ نتيجتك كصورة PNG. اضغط الرقم مرة ثانية لإلغاء اختياره، أو اترك الخيار فاضي إذا ما يناسبك.
 
-1. Create a new repo (public is required for free Pages) and add `index.html`.
-2. Repo **Settings → Pages → Build and deployment → Source: Deploy from a branch**, pick `main` / `(root)`, Save.
-3. After a minute it's live at `https://<your-username>.github.io/<repo-name>/`.
+## التغييرات
 
-Netlify Drop or Cloudflare Pages work too: drag the folder in, done.
+- تعريب الواجهة وتسميات الخيارات والإرشادات ورسائل التأكيد.
+- اتجاه عربي من اليمين لليسار، حتى ترتيب البرطمانات في الصورة.
+- خط تجوال بأوزان مختلفة في الواجهة والصورة المحفوظة.
+- أرقام عربية واسم ملف يدعم الأسماء العربية.
+- تصحيح عنوان النسخة والعداد ومكان رابط المصدر في الصفحة الأصلية.
+- تحسين المقاسات للشاشات الصغيرة مع إبقاء كود اللون وشرائط RGB باتجاهها المناسب.
 
-## Customizing
+الترجمة محافظة على فئات المشروع الأصلي. «العصا البنفسجية» ترجمة Violet Wand، و«جهاز تنس» هو TENS. الصفحة استبيان وليست إرشادات لاستخدام الأجهزة.
 
-- **Jar labels:** edit the `JARS` array at the top of the `<script>`. Each entry is a list of label lines. The grid is 7 columns wide and grows rows as needed.
-- **Preset colors:** edit `PRESETS`.
-- **Overflow looks:** six styles (drips, puddle, foam with popped lid, geyser, splash, hearts), assigned so neighbors never match. Details are seeded per jar, so every friend's sheet is consistent.
+## التشغيل
+
+افتح `index.html` في متصفح حديث. لا يحتاج المشروع بناء أو تثبيت مكتبات. لتحميل الخط من Google Fonts تحتاج اتصال إنترنت؛ عند تعذّر تحميله يُستخدم خط النظام.
+
+تُحفظ الإجابات والاسم واللون محليًا في متصفحك باستخدام `localStorage`، ولا يرفعها التطبيق إلى خادم. تحميل الخط يتصل بخدمة Google Fonts. زر «ابدأ من جديد» يمسح الاسم والتقييمات ويبقي اللون المختار.
+
+## النشر على GitHub Pages
+
+1. ارفع `index.html` إلى المستودع.
+2. افتح **Settings → Pages**.
+3. اختر **Deploy from a branch** ثم فرع النشر ومجلد **/(root)** واضغط **Save**.
+4. سيظهر رابط الموقع في صفحة الإعدادات بعد اكتمال النشر.
+
+## التخصيص
+
+- عدّل مصفوفة `JARS` لتغيير التسميات؛ كل عنصر فيها يمثل سطرًا في الصورة.
+- عدّل `PRESETS` لتغيير الألوان الجاهزة.
+- غيّر `COLS` لتحديد عدد أعمدة الصورة.
